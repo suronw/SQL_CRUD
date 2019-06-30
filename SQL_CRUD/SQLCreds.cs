@@ -13,7 +13,7 @@ namespace SQL_CRUD
         public static string User_Name = @"";
         public static string Password = "";
         //public static string Database = "";
-        public static string Database = ".";
+        public static string Database = "";
         public static string Connection_String
         {
             get

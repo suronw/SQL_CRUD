@@ -52,8 +52,43 @@ namespace SQL_CRUD
 
         }
 
+        public DataTable GetAllPeople()
+        {
+            String sql;
+            DataTable datas = new DataTable();
+            sql = "SELECT * " +
+                "FROM People ";
 
-        DataTable GetPeople(string SearchField, string SearchValue)
+            try
+            {
+                using (SqlConnection SQLconn = new SqlConnection(SQLCreds.Connection_String))
+                {
+                    SQLconn.Open();
+                    //MessageBox.Show("Connection Open!");
+
+                    using (SqlCommand cmd = new SqlCommand(sql, SQLconn))
+                    {
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+
+                            datas.Load(dr);
+
+                        }
+                    }
+
+                    SQLconn.Close();
+
+
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error searching SQL: " + e.Message);
+            }
+            return datas;
+        }
+
+        public DataTable GetPeople(string SearchField, string SearchValue)
         {
             String sql;
             DataTable datas = new DataTable();
@@ -61,32 +96,33 @@ namespace SQL_CRUD
                 "FROM People " +
                 "WHERE " + SearchField + " = '" + SearchValue + "'";
 
-            using (SqlConnection SQLconn = new SqlConnection(SQLCreds.Connection_String))
+            try
             {
-                SQLconn.Open();
-                //MessageBox.Show("Connection Open!");
-
-                using (SqlCommand cmd = new SqlCommand(sql, SQLconn))
+                using (SqlConnection SQLconn = new SqlConnection(SQLCreds.Connection_String))
                 {
-                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    SQLconn.Open();
+                    //MessageBox.Show("Connection Open!");
+
+                    using (SqlCommand cmd = new SqlCommand(sql, SQLconn))
                     {
-                        try
+                        using (SqlDataReader dr = cmd.ExecuteReader())
                         {
-                            datas.Load(dr);
-                        }
-                        catch (Exception e)
-                        {
-                            MessageBox.Show("Error searching SQL: " + e.Message);
-                        }
-                        finally
-                        {
-                            SQLconn.Close();
+                        
+                                datas.Load(dr);
+                        
                         }
                     }
-                }
 
-                return datas;
+                    SQLconn.Close();
+
+                    
+                }
             }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error searching SQL: " + e.Message);
+            }
+            return datas;
         }
 
         public int UpdatePerson(int iD, string firstName, string lastName, string emailAddress, string phoneNumber)
