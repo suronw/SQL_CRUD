@@ -21,6 +21,7 @@ namespace SQL_CRUD
         }
 
         private DataTable persons = new DataTable();
+        private DataTable blank = new DataTable();
         
         private SQLDataExchange dbAccess = new SQLDataExchange();
 
@@ -319,11 +320,14 @@ namespace SQL_CRUD
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearTextboxes();
+            persons = blank;
+            UpdateBinding();
         }
 
-        private void btnClear_Click_1(object sender, EventArgs e)
+        private void BtnViewAll_Click(object sender, EventArgs e)
         {
             ClearTextboxes();
+            GetAllPeople();
         }
     }
 }

@@ -55,6 +55,7 @@
             this.btnConnect = new System.Windows.Forms.Button();
             this.lblSQLstatus = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnViewAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgPeople)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +70,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(153, 150);
+            this.btnAdd.Location = new System.Drawing.Point(254, 155);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 0;
@@ -79,7 +80,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(333, 150);
+            this.btnUpdate.Location = new System.Drawing.Point(335, 155);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 2;
@@ -89,7 +90,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(414, 150);
+            this.btnDelete.Location = new System.Drawing.Point(416, 155);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 3;
@@ -292,19 +293,30 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(72, 150);
+            this.btnClear.Location = new System.Drawing.Point(92, 155);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 27;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click_1);
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnViewAll
+            // 
+            this.btnViewAll.Location = new System.Drawing.Point(173, 155);
+            this.btnViewAll.Name = "btnViewAll";
+            this.btnViewAll.Size = new System.Drawing.Size(75, 23);
+            this.btnViewAll.TabIndex = 28;
+            this.btnViewAll.Text = "View All";
+            this.btnViewAll.UseVisualStyleBackColor = true;
+            this.btnViewAll.Click += new System.EventHandler(this.BtnViewAll_Click);
             // 
             // frmSQLCRUD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(573, 429);
+            this.Controls.Add(this.btnViewAll);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lblSQLstatus);
             this.Controls.Add(this.btnConnect);
@@ -368,6 +380,7 @@
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.Label lblSQLstatus;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnViewAll;
     }
 }
 
