@@ -12,13 +12,99 @@ namespace SQL_CRUD
     class SQLDataExchange
     {
 
+        void TEMP_METHOD_TO_SAVE_SQL_QUERIES()
+        {
+            string sql_customer = "" +
+                "CREATE TABLE Customer (" +
+                "CustomerID int NOT NULL PRIMARY KEY," +
+                "FirstName varchar(50) NOT NULL," +
+                "LastName varchar(50) NOT NULL," +
+                "EmailAddress varchar(150)," +
+                "PhoneNumber varchar(10)," +
+                "Balance money" +
+                ");";
+
+            string sql_vendor = "" +
+                "CREATE TABLE Vendor (" +
+                "VendorID int NOT NULL PRIMARY KEY," +
+                "VendorName varchar(50) NOT NULL," +
+                "ShortName varchar(50) NOT NULL," +
+                "Address varchar(150)," +
+                "PhoneNumber varchar(10)," +
+                "Balance money" +
+                ");";
+
+            string sql_employee = "" +
+                "CREATE TABLE Employee (" +
+                "EmployeeID int NOT NULL PRIMARY KEY," +
+                "FirstName varchar(50) NOT NULL," +
+                "LastName varchar(50) NOT NULL," +
+                "Address varchar(150)," +
+                "PhoneNumber varchar(10)," +
+                "DiscountRate float" +
+                ");";
+
+            string sql_product = "" +
+                "CREATE TABLE Product (" +
+                "ProductID int NOT NULL PRIMARY KEY," +
+                "Name varchar(50) NOT NULL," +
+                "Code varchar(10) NOT NULL," +
+                "VendorID int FOREIGN KEY REFERENCES Vendor(VendorID)," +
+                "Price money NOT NULL," +
+                "OnSaleFlag bit NOT NULL," +
+                "SaleRate float" +
+                ");";
+
+            string sql_download = "" +
+                "CREATE TABLE Product (" +
+                "DownloadID int NOT NULL PRIMARY KEY," +
+                "Name varchar(50) NOT NULL," +
+                "Code varchar(10) NOT NULL," +
+                "WebAddress varchar(150)," +
+                "VendorID int FOREIGN KEY REFERENCES Vendor(VendorID)," +
+                "Price money NOT NULL," +
+                "OnSaleFlag bit NOT NULL," +
+                "SaleRate float" +
+                ");";
+
+            string sql_training = "" +
+                "CREATE TABLE Product (" +
+                "TrainingID int NOT NULL PRIMARY KEY," +
+                "Name varchar(50) NOT NULL," +
+                "Code varchar(10) NOT NULL," +
+                "WebAddress varchar(150)," +
+                "ExpirationDays int," +
+                "VendorID int FOREIGN KEY REFERENCES Vendor(VendorID)," +
+                "Price money NOT NULL," +
+                "OnSaleFlag bit NOT NULL," +
+                "SaleRate float" +
+                ");";
+
+            string sql_transaction = "" +
+                "CREATE TABLE Transaction (" +
+                "TransID int NOT NULL PRIMARY KEY," +
+                "DateTime datetime NOT NULL," +
+                "EmployeeID int NOT NULL FOREIGN KEY REFERENCES Employee(EmployeeID)," +
+                "CustomerID int NOT NULL FOREIGN KEY REFERENCES Customer(CustomerID)," +
+                "OriginalPrice money NOT NULL," +
+                "SaleFlag bit NOT NULL," +
+                "SalePrice money NOT NULL," +
+                "Quantity int NOT NULL," +
+                "FinalPrice money NOT NULL," +
+                "PaymentMethod varchar(20)" +
+                ");";
+
+
+        }
+
+
         public int CreateTable()
         {
             
             String sql;
             sql = "CREATE TABLE People (" +
                 "ID int NOT NULL PRIMARY KEY," +
-                "FirestName nvarchar(50) NOT NULL," +
+                "FirstName nvarchar(50) NOT NULL," +
                 "LastName nvarchar(50) NOT NULL," +
                 "EmailAddress nvarchar(150)," +
                 "PhoneNumber nvarchar(10)" +
