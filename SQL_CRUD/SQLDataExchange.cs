@@ -11,6 +11,48 @@ namespace SQL_CRUD
 {
     class SQLDataExchange
     {
+
+        public int CreateTable()
+        {
+            
+            String sql;
+            sql = "CREATE TABLE People (" +
+                "ID int NOT NULL PRIMARY KEY," +
+                "FirestName nvarchar(50) NOT NULL," +
+                "LastName nvarchar(50) NOT NULL," +
+                "EmailAddress nvarchar(150)," +
+                "PhoneNumber nvarchar(10)" +
+                ");";
+
+            using (SqlConnection SQLconn = new SqlConnection(SQLCreds.Connection_String))
+            {
+                using (SqlCommand command = new SqlCommand(sql, SQLconn))
+                {
+                    using (SqlDataAdapter sql_Data = new SqlDataAdapter(command))
+                    {
+                        try
+                        {
+                            SQLconn.Open();
+                            //MessageBox.Show("Connection Open!");
+
+                            sql_Data.InsertCommand = new SqlCommand(sql, SQLconn);
+                            sql_Data.InsertCommand.ExecuteNonQuery();
+
+                            command.Dispose();
+                            SQLconn.Close();
+
+                            return 0;
+                        }
+                        catch (Exception e)
+                        {
+                            MessageBox.Show("Error writing to SQL: " + e.Message);
+                            return 1;
+                        }
+                    }
+                }
+            }
+
+        }
         
         public int AddPerson(string firstName, string lastName, string emailAddress, string phoneNumber)
         {

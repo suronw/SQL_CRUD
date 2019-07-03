@@ -56,6 +56,7 @@
             this.lblSQLstatus = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnViewAll = new System.Windows.Forms.Button();
+            this.btnNewTable = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgPeople)).BeginInit();
             this.SuspendLayout();
             // 
@@ -260,7 +261,7 @@
             // 
             this.txtDatabase.Location = new System.Drawing.Point(93, 68);
             this.txtDatabase.Name = "txtDatabase";
-            this.txtDatabase.Size = new System.Drawing.Size(156, 20);
+            this.txtDatabase.Size = new System.Drawing.Size(136, 20);
             this.txtDatabase.TabIndex = 12;
             // 
             // lblDatabase
@@ -274,7 +275,7 @@
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(316, 68);
+            this.btnConnect.Location = new System.Drawing.Point(235, 66);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(66, 23);
             this.btnConnect.TabIndex = 25;
@@ -285,7 +286,7 @@
             // lblSQLstatus
             // 
             this.lblSQLstatus.AutoSize = true;
-            this.lblSQLstatus.Location = new System.Drawing.Point(445, 71);
+            this.lblSQLstatus.Location = new System.Drawing.Point(307, 71);
             this.lblSQLstatus.Name = "lblSQLstatus";
             this.lblSQLstatus.Size = new System.Drawing.Size(79, 13);
             this.lblSQLstatus.TabIndex = 26;
@@ -311,11 +312,22 @@
             this.btnViewAll.UseVisualStyleBackColor = true;
             this.btnViewAll.Click += new System.EventHandler(this.BtnViewAll_Click);
             // 
+            // btnNewTable
+            // 
+            this.btnNewTable.Location = new System.Drawing.Point(469, 66);
+            this.btnNewTable.Name = "btnNewTable";
+            this.btnNewTable.Size = new System.Drawing.Size(75, 23);
+            this.btnNewTable.TabIndex = 29;
+            this.btnNewTable.Text = "New Table";
+            this.btnNewTable.UseVisualStyleBackColor = true;
+            this.btnNewTable.Click += new System.EventHandler(this.BtnNewTable_Click);
+            // 
             // frmSQLCRUD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(573, 429);
+            this.Controls.Add(this.btnNewTable);
             this.Controls.Add(this.btnViewAll);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lblSQLstatus);
@@ -381,6 +393,7 @@
         private System.Windows.Forms.Label lblSQLstatus;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnViewAll;
+        private System.Windows.Forms.Button btnNewTable;
     }
 }
 

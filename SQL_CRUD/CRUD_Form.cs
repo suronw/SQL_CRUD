@@ -55,6 +55,15 @@ namespace SQL_CRUD
             }
         }
 
+        private void CreateSQLTable()
+        {
+            int res = dbAccess.CreateTable();
+            if (res == 0)
+            {
+                MessageBox.Show("Table created!");
+            }
+        }
+
         private void ClearTextboxes()
         {
             txtID.Text = "";
@@ -328,6 +337,18 @@ namespace SQL_CRUD
         {
             ClearTextboxes();
             GetAllPeople();
+        }
+
+        private void BtnNewTable_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("This will create a new People table in your SQL database, " +
+                "Are you sure?", "Create People table?", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                CreateSQLTable();
+            }
+            
         }
     }
 }
